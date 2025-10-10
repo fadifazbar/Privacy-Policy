@@ -21,7 +21,7 @@
       font-family: "Inter", sans-serif;
       background-color: var(--bg-light);
       color: var(--text-light);
-      transition: 0.3s;
+      transition: background-color 0.4s ease, color 0.4s ease;
     }
 
     .dark {
@@ -36,6 +36,7 @@
       padding: 1rem 2rem;
       background-color: var(--accent);
       color: white;
+      transition: background-color 0.4s ease, color 0.4s ease;
     }
 
     header img {
@@ -59,11 +60,13 @@
       padding: 8px 16px;
       cursor: pointer;
       font-weight: 600;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
     }
 
     .toggle-btn:hover {
       background: #ddd;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     main {
@@ -73,7 +76,7 @@
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: background 0.3s;
+      transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
     }
 
     .dark main {
@@ -171,11 +174,38 @@
 
   <script>
     const toggle = document.getElementById("modeToggle");
+
+    // Smooth transition for theme change
+    function smoothTransition() {
+      document.body.style.transition = "background-color 0.4s ease, color 0.4s ease";
+      document.querySelector("main").style.transition = "background-color 0.4s ease, color 0.4s ease";
+      document.querySelector("header").style.transition = "background-color 0.4s ease, color 0.4s ease";
+      setTimeout(() => {
+        document.body.style.transition = "";
+        document.querySelector("main").style.transition = "";
+        document.querySelector("header").style.transition = "";
+      }, 400);
+    }
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      toggle.textContent = "☀️ Light Mode";
+    }
+
+    // Toggle theme
     toggle.addEventListener("click", () => {
+      smoothTransition();
       document.body.classList.toggle("dark");
-      toggle.textContent = document.body.classList.contains("dark")
-        ? "☀️ Light Mode"
-        : "🌙 Dark Mode";
+      const isDark = document.body.classList.contains("dark");
+      toggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+
+      // Small glow animation
+      toggle.style.boxShadow = "0 0 12px #5865F2";
+      setTimeout(() => {
+        toggle.style.boxShadow = "none";
+      }, 400);
     });
   </script>
 </body>
