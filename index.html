@@ -6,7 +6,7 @@
   <title>Fadi's Assistant | Privacy Policy</title>
   <link rel="icon" href="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png">
 
-  <!-- ✅ Discord / Social Embed Metadata -->
+  <!-- ✅ Social / Discord Embed -->
   <meta property="og:title" content="Fadi's Assistant | Privacy Policy">
   <meta property="og:description" content="Learn how Fadi’s Assistant protects your data, privacy, and security.">
   <meta property="og:image" content="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png">
@@ -110,7 +110,7 @@
       opacity: 0.7;
     }
 
-    .invite-btn, .tos-btn {
+    .invite-btn {
       display: inline-block;
       background-color: var(--accent);
       color: white;
@@ -118,11 +118,11 @@
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
-      margin: 10px 5px 0 5px;
+      margin-top: 10px;
       transition: 0.3s;
     }
 
-    .invite-btn:hover, .tos-btn:hover {
+    .invite-btn:hover {
       background-color: #4752c4;
     }
   </style>
@@ -180,7 +180,6 @@
   </main>
 
   <footer>
-    <a href="https://fadifazbar.github.io/Terms-Of-Service/" class="tos-btn">📝 Terms Of Service</a><br>
     © 2025 Fadi's Assistant | Developed with ❤️ by Fadi
   </footer>
 
@@ -197,12 +196,12 @@
       toggle.style.backgroundColor = "#f5ca53";
     }
 
-    // Fade-in load
+    // Fade-in on load
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
     });
 
-    // Toggle dark/light
+    // Toggle theme
     toggle.addEventListener("click", () => {
       document.body.classList.toggle("dark");
       const darkMode = document.body.classList.contains("dark");
