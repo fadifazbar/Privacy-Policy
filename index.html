@@ -13,14 +13,11 @@
   <meta property="og:url" content="https://fadifazbar.github.io/Privacy-Policy/">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#FFD700">
-
-  <!-- 🐦 Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Fadi's Assistant | Privacy Policy">
-  <meta name="twitter:description" content="Learn how Fadi’s Assistant protects your data and privacy.">
-  <meta name="twitter:image" content="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png">
+  <meta name="description" content="Learn how Fadi's Assistant protects your data, privacy, and security while providing Discord utilities.">
+  <link rel="canonical" href="https://fadifazbar.github.io/Privacy-Policy/">
 
   <style>
+    /* 🌈 Root variables */
     :root {
       --bg-light: #f4f4f4;
       --bg-dark: #1e1e1e;
@@ -31,13 +28,18 @@
       --card-dark: #2b2b2b;
     }
 
+    * {
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Body + fade-in */
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
       background-color: var(--bg-light);
       color: var(--text-light);
-      transition: background 0.3s, color 0.3s, opacity 1s ease;
       opacity: 0;
+      transition: opacity 0.6s ease-in;
     }
 
     body.loaded {
@@ -49,21 +51,66 @@
       color: var(--text-dark);
     }
 
+    /* 🪩 Typing loader */
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: var(--bg-light);
+      position: fixed;
+      width: 100%;
+      top: 0; left: 0;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .dark #loader { background-color: var(--bg-dark); }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: typing 1s infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    /* ✨ Header shimmer */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: var(--accent);
       color: white;
+      background: linear-gradient(270deg, #5865F2, #7289da, #99aaff);
+      background-size: 600% 600%;
+      animation: shimmer 8s ease infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
+    /* 🧊 Floating logo */
     header img {
       width: 48px;
       height: 48px;
       border-radius: 50%;
       vertical-align: middle;
       margin-right: 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     h1 {
@@ -72,6 +119,7 @@
       font-size: 1.8rem;
     }
 
+    /* ☀️ Theme toggle */
     .toggle-btn {
       border: none;
       border-radius: 50%;
@@ -83,14 +131,21 @@
       transition: background 0.3s;
     }
 
+    /* 📜 Main content + entrance */
     main {
       max-width: 900px;
+      width: 90%;
       margin: 2rem auto;
       background-color: var(--card-light);
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: background 0.3s;
+      opacity: 0;
+      animation: fadeSlide 0.8s ease forwards;
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .dark main {
@@ -103,42 +158,72 @@
       text-decoration: none;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      opacity: 0.7;
+    a:hover {
+      text-decoration: underline;
+      color: #4752c4;
     }
 
+    .dark a {
+      text-shadow: 0 0 8px #5865F2;
+    }
+
+    /* 🌈 Gradient button */
     .invite-btn {
       display: inline-block;
-      background-color: var(--accent);
+      background: linear-gradient(90deg, #5865F2, #7289da);
       color: white;
       padding: 10px 20px;
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
       margin-top: 10px;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     .invite-btn:hover {
-      background-color: #4752c4;
+      background: linear-gradient(90deg, #7289da, #99aaff);
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(88,101,242,0.6);
+    }
+
+    /* 👣 Footer + hover secret */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      position: relative;
+    }
+
+    footer:hover::after {
+      content: "🤖 Fadi’s Assistant never leaks, only listens.";
+      display: block;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 4px;
     }
   </style>
 </head>
 <body>
+  <!-- Typing loader -->
+  <div id="loader">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
   <header>
     <div>
       <img src="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png" alt="Bot Logo">
       <h1>Fadi's Assistant</h1>
     </div>
-    <button class="toggle-btn" id="modeToggle">☀️</button>
+    <button class="toggle-btn" id="modeToggle" aria-label="Toggle light and dark mode">☀️</button>
   </header>
 
   <main>
     <h2>Privacy Policy</h2>
     <p><strong>Last Updated:</strong> October 10, 2025</p>
+    <p><strong>Last Reviewed:</strong> October 10, 2025</p>
 
     <p>Welcome to <strong>Fadi's Assistant</strong> — a multipurpose Discord bot created by <strong>Fadi</strong>. This Privacy Policy explains how we handle and protect data while using the bot.</p>
 
@@ -160,13 +245,13 @@
     <p>Fadi’s Assistant does <strong>not</strong> share or sell data to third parties.</p>
 
     <h3>5. User Rights</h3>
-    <p>Users can request their data removal anytime by contacting the developer below.</p>
+    <p>You may request the removal of your stored data at any time by contacting the developer below.</p>
 
     <h3>6. Security</h3>
     <p>All stored data is protected using limited access measures. Efforts are made to prevent unauthorized access.</p>
 
     <h3>7. Compliance</h3>
-    <p>Fadi’s Assistant complies with Discord’s <a href="https://discord.com/developers/docs/policies-and-agreements/developer-terms" target="_blank">Developer Terms</a> and GDPR standards.</p>
+    <p>Fadi’s Assistant complies with Discord’s <a href="https://discord.com/developers/docs/policies-and-agreements/developer-terms" target="_blank">Developer Terms</a>, GDPR, and COPPA standards.</p>
 
     <h3>8. Contact</h3>
     <ul>
@@ -181,10 +266,17 @@
 
   <footer>
     © 2025 Fadi's Assistant | Developed with ❤️ by Fadi
+    <p><img src="https://lanyard.cnrad.dev/api/1167531276467708055?theme=dark&borderRadius=8px" alt="Discord presence" /></p>
   </footer>
 
   <script>
     const toggle = document.getElementById("modeToggle");
+
+    // 🌓 Auto theme match if not saved
+    if (!localStorage.getItem("theme")) {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.body.classList.toggle("dark", prefersDark);
+    }
 
     // Apply saved theme
     if (localStorage.getItem("theme") === "dark") {
@@ -196,18 +288,22 @@
       toggle.style.backgroundColor = "#fae3a5";
     }
 
-    // Fade-in on load
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-    });
-
-    // Toggle theme
+    // Theme toggle button
     toggle.addEventListener("click", () => {
       document.body.classList.toggle("dark");
       const darkMode = document.body.classList.contains("dark");
       toggle.textContent = darkMode ? "🌕" : "☀️";
       toggle.style.backgroundColor = darkMode ? "#f5f2f2" : "#fae3a5";
       localStorage.setItem("theme", darkMode ? "dark" : "light");
+    });
+
+    // Fade-in + loader
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").style.opacity = "0";
+        setTimeout(() => document.getElementById("loader").remove(), 500);
+        document.body.classList.add("loaded");
+      }, 700);
     });
   </script>
 </body>
