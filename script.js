@@ -4,12 +4,12 @@ const toggle = document.getElementById("modeToggle");
 const body = document.body;
 const loader = document.getElementById("loader");
 
-// 🌓 Animate theme button switch
-function animateThemeSwitch(newIcon) {
+// 🌓 Animate theme button switch (emoji slides directionally)
+function animateThemeSwitch(newIcon, direction) {
   toggle.classList.add("switching");
   const emoji = document.createElement("span");
   emoji.textContent = newIcon;
-  emoji.classList.add("theme-emoji");
+  emoji.classList.add("theme-emoji", direction === "right" ? "slide-right" : "slide-left");
   toggle.appendChild(emoji);
 
   setTimeout(() => {
@@ -43,7 +43,8 @@ function applyTheme(isDark) {
 // 🖱️ Handle toggle click
 toggle.addEventListener("click", () => {
   const isDark = !body.classList.contains("dark");
-  animateThemeSwitch(isDark ? "🌕" : "☀️");
+  const direction = isDark ? "left" : "right"; // left = light → dark, right = dark → light
+  animateThemeSwitch(isDark ? "🌕" : "☀️", direction);
   applyTheme(isDark);
 });
 
@@ -55,37 +56,6 @@ window.addEventListener("load", () => {
     body.classList.add("loaded");
   }, 700);
 });
-
-// ✨ Scroll-to-top button (optional, uncomment to use)
-/*
-const scrollBtn = document.createElement("button");
-scrollBtn.textContent = "⬆️";
-scrollBtn.id = "scrollTopBtn";
-scrollBtn.style.cssText = `
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #5865F2;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-`;
-document.body.appendChild(scrollBtn);
-
-window.addEventListener("scroll", () => {
-  scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
-});
-
-scrollBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-*/
 
 // 🧠 Console signature
 console.log("%cFadi’s Assistant", "color:#5865F2;font-size:18px;font-weight:bold;");
