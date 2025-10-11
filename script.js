@@ -1,60 +1,92 @@
-// 🌙 Theme Toggle & Loader System — Fadi's Assistant
+// 🌙 Theme toggle and page load script for Fadi's Assistant
 
 const toggle = document.getElementById("modeToggle");
+const body = document.body;
 const loader = document.getElementById("loader");
 
-// 🌓 Restore saved theme or auto-detect system preference
-if (!localStorage.getItem("theme")) {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  document.body.classList.toggle("dark", prefersDark);
-  localStorage.setItem("theme", prefersDark ? "dark" : "light");
-} else if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
-}
-
-// 🔆 Initialize toggle emoji + animation position
-updateToggleVisual();
-
-function updateToggleVisual() {
-  const darkMode = document.body.classList.contains("dark");
-  toggle.innerHTML = darkMode
-    ? '<span class="emoji" style="transform: translateX(20px); transition: transform 0.3s;">🌕</span>'
-    : '<span class="emoji" style="transform: translateX(-20px); transition: transform 0.3s;">☀️</span>';
-  toggle.style.backgroundColor = darkMode ? "#f5f2f2" : "#fae3a5";
-}
-
-// 🪄 Theme switcher animation
-toggle.addEventListener("click", () => {
-  const isDark = document.body.classList.toggle("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-
-  toggle.classList.add("animating");
-  toggle.innerHTML = isDark
-    ? '<span class="emoji" style="opacity: 0;">☀️</span>'
-    : '<span class="emoji" style="opacity: 0;">🌕</span>';
+// 🌓 Animate theme button switch
+function animateThemeSwitch(newIcon) {
+  toggle.classList.add("switching");
+  const emoji = document.createElement("span");
+  emoji.textContent = newIcon;
+  emoji.classList.add("theme-emoji");
+  toggle.appendChild(emoji);
 
   setTimeout(() => {
-    updateToggleVisual();
-    toggle.classList.remove("animating");
-  }, 200);
+    toggle.textContent = newIcon;
+    toggle.classList.remove("switching");
+    emoji.remove();
+  }, 400);
+}
+
+// 🌗 Initialize theme
+function applyTheme(isDark) {
+  if (isDark) {
+    body.classList.add("dark");
+    toggle.textContent = "🌕";
+    toggle.style.backgroundColor = "#f5f2f2";
+  } else {
+    body.classList.remove("dark");
+    toggle.textContent = "☀️";
+    toggle.style.backgroundColor = "#fae3a5";
+  }
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+}
+
+// 💾 Apply saved theme or system preference
+(function initTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
+})();
+
+// 🖱️ Handle toggle click
+toggle.addEventListener("click", () => {
+  const isDark = !body.classList.contains("dark");
+  animateThemeSwitch(isDark ? "🌕" : "☀️");
+  applyTheme(isDark);
 });
 
-// ⏳ Loader fade effect
+// 🌀 Page fade-in and loader removal
 window.addEventListener("load", () => {
   setTimeout(() => {
     loader.style.opacity = "0";
-    setTimeout(() => loader.remove(), 600);
-    document.body.classList.add("loaded");
+    setTimeout(() => loader.remove(), 500);
+    body.classList.add("loaded");
   }, 700);
 });
 
-// 🎵 Smooth scroll for internal links (optional enhancement)
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
+// ✨ Scroll-to-top button (optional, uncomment to use)
+/*
+const scrollBtn = document.createElement("button");
+scrollBtn.textContent = "⬆️";
+scrollBtn.id = "scrollTopBtn";
+scrollBtn.style.cssText = `
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #5865F2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+`;
+document.body.appendChild(scrollBtn);
+
+window.addEventListener("scroll", () => {
+  scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
 });
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+*/
+
+// 🧠 Console signature
+console.log("%cFadi’s Assistant", "color:#5865F2;font-size:18px;font-weight:bold;");
+console.log("Privacy Policy loaded successfully ✅");
