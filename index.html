@@ -57,7 +57,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: var(--accent);
+      background: linear-gradient(270deg, #007bff, #ffcc00);
+      background-size: 400% 400%;
+      animation: gradientMove 8s ease infinite;
       color: white;
       flex-wrap: wrap;
     }
@@ -69,6 +71,7 @@
     }
 
     header img {
+      animation: floatLogo 3s ease-in-out infinite;
       width: 48px;
       height: 48px;
       border-radius: 50%;
@@ -77,6 +80,27 @@
     header h1 {
       font-size: 1.8rem;
     }
+
+    @keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes floatLogo {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
 
     @media (max-width: 600px) {
       header {
