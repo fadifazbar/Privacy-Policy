@@ -1,309 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fadi's Assistant | Privacy Policy</title>
+  <meta name="description" content="Learn how Fadi's Assistant protects your data, privacy, and security while providing Discord utilities." />
   <link rel="icon" href="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png">
-
-  <!-- ✅ Social / Discord Embed -->
+  <link rel="canonical" href="https://fadifazbar.github.io/Privacy-Policy/">
   <meta property="og:title" content="Fadi's Assistant | Privacy Policy">
   <meta property="og:description" content="Learn how Fadi’s Assistant protects your data, privacy, and security.">
   <meta property="og:image" content="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png">
-  <meta property="og:url" content="https://fadifazbar.github.io/Privacy-Policy/">
-  <meta property="og:type" content="website">
   <meta name="theme-color" content="#FFD700">
-  <meta name="description" content="Learn how Fadi's Assistant protects your data, privacy, and security while providing Discord utilities.">
-  <link rel="canonical" href="https://fadifazbar.github.io/Privacy-Policy/">
 
-  <style>
-    /* 🌈 Root variables */
-    :root {
-      --bg-light: #f4f4f4;
-      --bg-dark: #1e1e1e;
-      --text-light: #1e1e1e;
-      --text-dark: #f4f4f4;
-      --accent: #5865F2;
-      --card-light: #ffffff;
-      --card-dark: #2b2b2b;
-    }
-
-    * {
-      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    /* Body + fade-in */
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-light);
-      opacity: 0;
-      transition: opacity 0.6s ease-in;
-    }
-
-    body.loaded {
-      opacity: 1;
-    }
-
-    .dark {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-    }
-
-    /* 🪩 Typing loader */
-    #loader {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: var(--bg-light);
-      position: fixed;
-      width: 100%;
-      top: 0; left: 0;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-    .dark #loader { background-color: var(--bg-dark); }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      margin: 0 5px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: typing 1s infinite;
-    }
-    .dot:nth-child(2) { animation-delay: 0.2s; }
-    .dot:nth-child(3) { animation-delay: 0.4s; }
-
-    @keyframes typing {
-      0%, 80%, 100% { transform: scale(0); }
-      40% { transform: scale(1); }
-    }
-
-    /* ✨ Header shimmer */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      color: white;
-      background: linear-gradient(270deg, #5865F2, #7289da, #99aaff);
-      background-size: 600% 600%;
-      animation: shimmer 8s ease infinite;
-    }
-    @keyframes shimmer {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* 🧊 Floating logo */
-    header img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      vertical-align: middle;
-      margin-right: 10px;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    h1 {
-      display: inline-block;
-      vertical-align: middle;
-      font-size: 1.8rem;
-    }
-
-    /* ☀️ Theme toggle */
-    .toggle-btn {
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.4rem;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    /* 📜 Main content + entrance */
-    main {
-      max-width: 900px;
-      width: 90%;
-      margin: 2rem auto;
-      background-color: var(--card-light);
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      opacity: 0;
-      animation: fadeSlide 0.8s ease forwards;
-    }
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .dark main {
-      background-color: var(--card-dark);
-      box-shadow: 0 4px 12px rgba(255,255,255,0.05);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      color: #4752c4;
-    }
-
-    .dark a {
-      text-shadow: 0 0 8px #5865F2;
-    }
-
-    /* 🌈 Gradient button */
-    .invite-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #5865F2, #7289da);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      margin-top: 10px;
-      transition: 0.3s ease;
-    }
-
-    .invite-btn:hover {
-      background: linear-gradient(90deg, #7289da, #99aaff);
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(88,101,242,0.6);
-    }
-
-    /* 👣 Footer + hover secret */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      opacity: 0.7;
-      position: relative;
-    }
-
-    footer:hover::after {
-      content: "🤖 Fadi’s Assistant never leaks, only listens.";
-      display: block;
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-top: 4px;
-    }
-  </style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Typing loader -->
-  <div id="loader">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+  <!-- Loader -->
+  <div id="loader" aria-hidden="true">
+    <div class="dots"><span></span><span></span><span></span></div>
   </div>
 
+  <!-- Floating sidebar -->
+  <nav id="sidebar" aria-label="Page navigation">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#collection">Data Collection</a></li>
+      <li><a href="#storage">Data Storage</a></li>
+      <li><a href="#usage">Usage</a></li>
+      <li><a href="#retention">Retention</a></li>
+      <li><a href="#transparency">Transparency</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
-    <div>
-      <img src="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png" alt="Bot Logo">
-      <h1>Fadi's Assistant</h1>
+    <div class="brand">
+      <img src="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png" alt="Fadi's Assistant logo" width="56" height="56">
+      <div>
+        <h1 id="title">Fadi's Assistant</h1>
+        <small class="muted">Privacy Policy <span id="policyVersion">v1.0</span></small>
+      </div>
     </div>
-    <button class="toggle-btn" id="modeToggle" aria-label="Toggle light and dark mode">☀️</button>
+
+    <div class="controls">
+      <button id="themeToggle" aria-label="Toggle theme" class="theme-btn">
+        <svg id="themeIcon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 3.1a1 1 0 0 1 1 .9v1.6a1 1 0 1 1-2 0V4a1 1 0 0 1 1-0.9zM12 18.4a1 1 0 0 1 1 .9v1.6a1 1 0 1 1-2 0v-1.6a1 1 0 0 1 1-0.9zM4.2 7.1a1 1 0 0 1 .7-.3h1.4a1 1 0 1 1 0 2H5a1 1 0 0 1-.7-1.7zM18.6 7.1a1 1 0 0 1 .7-.3h1.4a1 1 0 1 1 0 2h-1.4a1 1 0 0 1-.7-1.7zM6.2 17.2a1 1 0 0 1 .7-.3h1.4a1 1 0 1 1 0 2H6.9a1 1 0 0 1-.7-1.7zM16.6 17.2a1 1 0 0 1 .7-.3h1.4a1 1 0 1 1 0 2h-1.4a1 1 0 0 1-.7-1.7zM4.5 12a1 1 0 0 1 .9-1h1.6a1 1 0 1 1 0 2H5.4a1 1 0 0 1-.9-1zM17.5 12a1 1 0 0 1 .9-1h1.6a1 1 0 1 1 0 2h-1.6a1 1 0 0 1-.9-1zM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/></svg>
+      </button>
+      <a id="inviteBtn" class="invite" href="https://discord.com/oauth2/authorize?client_id=1242542083059749005&permissions=8&integration_type=0&scope=bot" rel="noopener" target="_blank">Invite</a>
+    </div>
   </header>
 
   <main>
-    <h2>Privacy Policy</h2>
-    <p><strong>Last Updated:</strong> October 10, 2025</p>
+    <section id="overview" class="card reveal">
+      <h2>Overview <span class="icon">🛡️</span></h2>
+      <p class="lead">Welcome to <strong>Fadi's Assistant</strong> — a multipurpose Discord bot. This page explains what data we collect, why we collect it, how we store it, and your rights.</p>
+    </section>
 
-    <p>Welcome to <strong>Fadi's Assistant</strong> — a multipurpose Discord bot created by <strong>Fadi</strong>. This Privacy Policy explains how we handle and protect data while using the bot.</p>
+    <section id="collection" class="card reveal">
+      <h3>Data Collection <span class="icon">📥</span></h3>
+      <ul>
+        <li>User IDs</li>
+        <li>Server IDs</li>
+        <li>Channel IDs</li>
+        <li>Bot logs & configuration (optional per server)</li>
+      </ul>
+      <p>Data is only collected to enable bot features like moderation, configuration persistence, and audit logs.</p>
+    </section>
 
-    <h3>1. Information We Collect</h3>
-    <ul>
-      <li>User IDs</li>
-      <li>Server IDs</li>
-      <li>Channel IDs</li>
-    </ul>
-    <p>This data ensures features like moderation, configuration, and logging work properly.</p>
+    <section id="storage" class="card reveal">
+      <h3>Data Storage <span class="icon">💾</span></h3>
+      <p>Data is stored as JSON files within the bot's private storage (e.g., Railway’s /data/). Backups, if any, are handled securely and access is restricted to the developer.</p>
+    </section>
 
-    <h3>2. Data Storage</h3>
-    <p>Data is securely stored in JSON files within the bot’s private directory on <strong>Railway’s /data/</strong> system, inaccessible to the public.</p>
+    <section id="usage" class="card reveal">
+      <h3>How We Use Data <span class="icon">⚙️</span></h3>
+      <p>We use data to maintain the bot, respond to moderation requests, and provide configuration persistence. We do not sell data or use it for third-party marketing.</p>
+    </section>
 
-    <h3>3. Data Usage</h3>
-    <p>Data is used solely to maintain bot functionality and stability. No marketing or tracking purposes.</p>
+    <section id="retention" class="card reveal">
+      <h3>Data Retention <span class="icon">🗄️</span></h3>
+      <p>Default retention: configuration data is kept until removed by server admins or upon request. Logs older than 90 days may be purged automatically (configurable).</p>
+    </section>
 
-    <h3>4. Third-Party Sharing</h3>
-    <p>Fadi’s Assistant does <strong>not</strong> share or sell data to third parties.</p>
+    <section id="transparency" class="card reveal">
+      <h3>Transparency Report <span class="icon">🔍</span></h3>
+      <p>Major privacy changes and incidents will be published here or via the developer's Discord. Contact the developer to request copies of any logs that pertain to you.</p>
+    </section>
 
-    <h3>5. User Rights</h3>
-    <p>You may request the removal of your stored data at any time by contacting the developer below.</p>
+    <section id="faq" class="card reveal">
+      <h3>FAQ <span class="icon">❓</span></h3>
+      <div class="accordion">
+        <button class="acc-toggle">Does the bot read my messages?</button>
+        <div class="acc-panel">No — the bot does not read or store message contents unless an opt-in feature (like message logging) is explicitly enabled and disclosed.</div>
 
-    <h3>6. Security</h3>
-    <p>All stored data is protected using limited access measures. Efforts are made to prevent unauthorized access.</p>
+        <button class="acc-toggle">How can I request my data?</button>
+        <div class="acc-panel">Use the contact info below. Provide your user ID and a reason for the removal — the developer will respond promptly.</div>
 
-    <h3>7. Compliance</h3>
-    <p>Fadi’s Assistant complies with Discord’s <a href="https://discord.com/developers/docs/policies-and-agreements/developer-terms" target="_blank">Developer Terms</a>, GDPR, and COPPA standards.</p>
+        <button class="acc-toggle">Is my data shared with third parties?</button>
+        <div class="acc-panel">No. We do not sell or share your personal data with third-party advertisers.</div>
+      </div>
+    </section>
 
-    <h3>8. Contact</h3>
-    <ul>
-      <li>Email: <a href="mailto:faditoilet@gmail.com">faditoilet@gmail.com</a></li>
-      <li>Discord: <a href="https://discord.com/users/1167531276467708055">@fadi_fazbarr</a></li>
-    </ul>
+    <section id="contact" class="card reveal">
+      <h3>Contact <span class="icon">📬</span></h3>
+      <p>Email: <a id="emailLink" href="mailto:faditoilet@gmail.com">faditoilet@gmail.com</a>
+        <button id="copyEmail" class="mini-btn" aria-label="Copy email">Copy</button>
+      </p>
+      <p>Discord: <a href="https://discord.com/users/1167531276467708055" target="_blank" rel="noopener">@fadi_fazbarr</a></p>
+      <p>Policy last updated: <time id="lastUpdated">October 10, 2025</time></p>
+      <p>Policy version: <span id="version">1.3</span></p>
+    </section>
 
-    <h3>9. Invite & Commands</h3>
-    <a href="https://discord.com/oauth2/authorize?client_id=1242542083059749005&permissions=8&integration_type=0&scope=bot" class="invite-btn">Invite Fadi’s Assistant</a>
-    <p>Prefix: <strong>$</strong> | Supports Slash Commands ✅</p>
   </main>
 
+  <!-- Scroll to top -->
+  <button id="toTop" aria-label="Scroll to top">↑</button>
+
   <footer>
-    © 2025 Fadi's Assistant | Developed with ❤️ by Fadi
-    <p><img src="https://lanyard.cnrad.dev/api/1167531276467708055?theme=dark&borderRadius=8px" alt="Discord presence" /></p>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Fadi's Assistant | Developed with <span class="heart">❤️</span> by Fadi</div>
+      <div class="socials">
+        <a href="https://github.com/fadifazbar" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="mailto:faditoilet@gmail.com" aria-label="Email">Email</a>
+      </div>
+      <div class="presence"><img src="https://lanyard.cnrad.dev/api/1167531276467708055?theme=dark&borderRadius=8px" alt="Discord presence"/></div>
+    </div>
   </footer>
 
-  <script>
-    const toggle = document.getElementById("modeToggle");
-
-    // 🌓 Auto theme match if not saved
-    if (!localStorage.getItem("theme")) {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.body.classList.toggle("dark", prefersDark);
-    }
-
-    // Apply saved theme
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark");
-      toggle.textContent = "🌕";
-      toggle.style.backgroundColor = "#f5f2f2";
-    } else {
-      toggle.textContent = "☀️";
-      toggle.style.backgroundColor = "#fae3a5";
-    }
-
-    // Theme toggle button
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      const darkMode = document.body.classList.contains("dark");
-      toggle.textContent = darkMode ? "🌕" : "☀️";
-      toggle.style.backgroundColor = darkMode ? "#f5f2f2" : "#fae3a5";
-      localStorage.setItem("theme", darkMode ? "dark" : "light");
-    });
-
-    // Fade-in + loader
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.getElementById("loader").style.opacity = "0";
-        setTimeout(() => document.getElementById("loader").remove(), 500);
-        document.body.classList.add("loaded");
-      }, 700);
-    });
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
