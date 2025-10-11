@@ -6,22 +6,23 @@
   <title>Fadi's Assistant | Privacy Policy</title>
   <link rel="icon" href="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png">
 
-  <!-- ✅ Social Embed -->
-  <meta property="og:title" content="Fadi's Assistant | Privacy Policy">
-  <meta property="og:description" content="Learn how Fadi’s Assistant protects your data, privacy, and security.">
-  <meta property="og:image" content="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png">
   <meta name="theme-color" content="#FFD700">
+  <meta name="description" content="Learn how Fadi's Assistant protects your data, privacy, and security while providing Discord utilities.">
 
   <style>
     :root {
-      --accent: #5865F2;
       --bg-light: #f4f4f4;
       --bg-dark: #1e1e1e;
       --text-light: #1e1e1e;
       --text-dark: #f4f4f4;
+      --accent: #5865F2;
       --card-light: #ffffff;
       --card-dark: #2b2b2b;
-      --link-glow: 0 0 6px rgba(0,191,255,0.7);
+      --blue-gradient: linear-gradient(90deg, #0394fc, #75c6ff);
+    }
+
+    * {
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     body {
@@ -29,14 +30,10 @@
       font-family: "Inter", sans-serif;
       background-color: var(--bg-light);
       color: var(--text-light);
-      transition: background 0.5s, color 0.5s;
       opacity: 0;
+      transition: opacity 0.6s ease-in;
     }
-
-    body.loaded {
-      opacity: 1;
-      transition: opacity 0.6s ease;
-    }
+    body.loaded { opacity: 1; }
 
     .dark {
       background-color: var(--bg-dark);
@@ -48,15 +45,15 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: var(--accent);
+      background: var(--accent);
       color: white;
-      position: relative;
     }
 
     header img {
       width: 48px;
       height: 48px;
       border-radius: 50%;
+      vertical-align: middle;
       margin-right: 10px;
     }
 
@@ -66,147 +63,96 @@
       font-size: 1.8rem;
     }
 
+    /* THEME TOGGLE BUTTON ANIMATION */
     .toggle-btn {
-      position: relative;
       border: none;
-      border-radius: 25px;
-      width: 70px;
-      height: 35px;
+      border-radius: 50px;
+      width: 65px;
+      height: 36px;
       background: #fae3a5;
-      cursor: pointer;
-      overflow: hidden;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
+      justify-content: flex-end;
+      padding: 5px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
 
-    .emoji {
+    .toggle-emoji {
+      font-size: 1.3rem;
+      transition: transform 0.4s ease, opacity 0.4s ease;
       position: absolute;
-      transition: transform 0.6s ease, opacity 0.3s ease;
     }
 
-    .emoji.sun {
-      left: 10px;
-    }
-
-    .emoji.moon {
-      right: 10px;
-      transform: translateX(150%);
-      opacity: 0;
-    }
+    .sun { right: 8px; opacity: 1; }
+    .moon { left: 8px; opacity: 0; }
 
     .dark .toggle-btn {
       background: #f5f2f2;
+      justify-content: flex-start;
     }
 
-    .dark .emoji.sun {
-      transform: translateX(-150%);
-      opacity: 0;
-    }
-
-    .dark .emoji.moon {
-      transform: translateX(0);
-      opacity: 1;
-    }
+    .dark .sun { opacity: 0; transform: translateX(20px) scale(0.5); }
+    .dark .moon { opacity: 1; transform: translateX(0) scale(1); }
 
     main {
       max-width: 900px;
+      width: 90%;
       margin: 2rem auto;
       background-color: var(--card-light);
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: background 0.3s;
     }
-
     .dark main {
       background-color: var(--card-dark);
       box-shadow: 0 4px 12px rgba(255,255,255,0.05);
     }
 
-    h2, h3 {
-      transition: color 0.3s;
+    a {
+      color: #00bfff;
+      text-decoration: none;
+      background: linear-gradient(90deg, #00bfff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      transition: text-shadow 0.3s ease;
     }
 
-    .dark h3 {
-      color: #fff480;
+    a:hover {
+      text-shadow: 0 0 10px #75c6ff;
+    }
+
+    .dark a {
+      background: linear-gradient(90deg, #75c6ff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     h3 {
       color: #00bfff;
     }
 
-    a {
-      color: #00bfff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      text-shadow: var(--link-glow);
+    .dark h3 {
+      color: #fff480;
     }
 
-    a:hover {
-      color: #ffffff;
-      text-shadow: 0 0 10px #00bfff, 0 0 20px #75c6ff;
-    }
-
-    .invite-btn, #scrollTop {
+    .invite-btn {
       display: inline-block;
-      background: linear-gradient(135deg, #0394fc, #75c6ff);
+      background: var(--blue-gradient);
       color: white;
-      padding: 12px 25px;
+      padding: 12px 24px;
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
       margin-top: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .invite-btn:hover, #scrollTop:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(117,198,255,0.8);
-    }
-
-    #scrollTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 1.5rem;
-      text-align: center;
-      line-height: 50px;
-      display: none;
-      cursor: pointer;
-    }
-
-    .faq {
-      margin-top: 3rem;
-    }
-
-    .faq h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    details {
-      background: rgba(0,0,0,0.05);
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      padding: 1rem;
       transition: 0.3s;
     }
 
-    .dark details {
-      background: rgba(255,255,255,0.1);
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1.1rem;
+    .invite-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(117,198,255,0.8);
     }
 
     footer {
@@ -215,17 +161,80 @@
       font-size: 0.9rem;
       opacity: 0.7;
     }
+
+    /* Scroll-to-top */
+    #scrollTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--blue-gradient);
+      color: white;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.4s ease, transform 0.3s ease;
+      opacity: 0;
+      z-index: 100;
+    }
+
+    #scrollTop.visible {
+      opacity: 0.85;
+    }
+
+    #scrollTop:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(117, 198, 255, 0.8);
+      opacity: 1;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 2.5rem;
+    }
+
+    .faq-section h2 {
+      font-size: 1.7rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .faq {
+      margin-bottom: 1.2rem;
+      background-color: rgba(0,0,0,0.05);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .dark .faq {
+      background-color: rgba(255,255,255,0.08);
+    }
+
+    .faq strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
   </style>
 </head>
+
 <body>
   <header>
-    <div style="display:flex;align-items:center;">
+    <div>
       <img src="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png" alt="Bot Logo">
       <h1>Fadi's Assistant</h1>
     </div>
-    <button class="toggle-btn" id="modeToggle">
-      <span class="emoji sun">☀️</span>
-      <span class="emoji moon">🌙</span>
+
+    <button class="toggle-btn" id="modeToggle" aria-label="Toggle Theme">
+      <span class="toggle-emoji sun">☀️</span>
+      <span class="toggle-emoji moon">🌕</span>
     </button>
   </header>
 
@@ -233,74 +242,94 @@
     <h2>Privacy Policy</h2>
     <p><strong>Last Updated:</strong> October 10, 2025</p>
 
+    <p>Welcome to <strong>Fadi's Assistant</strong> — a multipurpose Discord bot created by <strong>Fadi</strong>. This Privacy Policy explains how we handle and protect data while using the bot.</p>
+
     <h3>1. Information We Collect</h3>
-    <p>We collect only essential Discord data such as user IDs, server IDs, and channel IDs to ensure features like moderation and configuration work properly.</p>
+    <ul>
+      <li>User IDs</li>
+      <li>Server IDs</li>
+      <li>Channel IDs</li>
+    </ul>
 
     <h3>2. Data Storage</h3>
-    <p>Data is securely stored in JSON files within Railway’s private system, inaccessible to anyone except the bot itself.</p>
+    <p>Data is securely stored in JSON files within the bot’s private directory on <strong>Railway’s /data/</strong> system, inaccessible to the public.</p>
 
     <h3>3. Data Usage</h3>
-    <p>Data is used strictly to maintain bot features — no ads, tracking, or profiling.</p>
+    <p>Data is used solely to maintain bot functionality and stability. No marketing or tracking purposes.</p>
 
     <h3>4. Third-Party Sharing</h3>
-    <p>We never share or sell user data to any third-party services.</p>
+    <p>Fadi’s Assistant does <strong>not</strong> share or sell data to third parties.</p>
 
     <h3>5. User Rights</h3>
-    <p>Users can request data removal anytime by contacting the developer.</p>
+    <p>You may request the removal of your stored data at any time by contacting the developer below.</p>
 
     <h3>6. Security</h3>
-    <p>Stored data is protected through restricted access and internal checks to prevent unauthorized access.</p>
+    <p>All stored data is protected using limited access measures. Efforts are made to prevent unauthorized access.</p>
 
     <h3>7. Compliance</h3>
-    <p>Complies with <a href="https://discord.com/developers/docs/policies-and-agreements/developer-terms" target="_blank">Discord Developer Terms</a> and GDPR standards.</p>
+    <p>Fadi’s Assistant complies with Discord’s <a href="https://discord.com/developers/docs/policies-and-agreements/developer-terms" target="_blank">Developer Terms</a>, GDPR, and COPPA standards.</p>
 
     <h3>8. Contact</h3>
-    <p>Email: <a href="mailto:faditoilet@gmail.com">faditoilet@gmail.com</a><br>
-    Discord: <a href="https://discord.com/users/1167531276467708055">@fadi_fazbarr</a></p>
+    <ul>
+      <li>Email: <a href="mailto:faditoilet@gmail.com">faditoilet@gmail.com</a></li>
+      <li>Discord: <a href="https://discord.com/users/1167531276467708055">@fadi_fazbarr</a></li>
+    </ul>
 
+    <h3>9. Invite & Commands</h3>
     <a href="https://discord.com/oauth2/authorize?client_id=1242542083059749005&permissions=8&integration_type=0&scope=bot" class="invite-btn">🤖 Invite Fadi’s Assistant</a>
+    <p>Prefix: <strong>$</strong> | Supports Slash Commands ✅</p>
 
-    <!-- 🔹 FAQ Section -->
-    <section class="faq">
-      <h2>❓ Frequently Asked Questions</h2>
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2>💭 Frequently Asked Questions</h2>
 
-      <details><summary>💾 What data does the bot save?</summary><p>Only essential IDs to maintain your server configurations.</p></details>
-      <details><summary>🧹 Can I clear my data?</summary><p>Yes, by contacting the developer with your server or user ID.</p></details>
-      <details><summary>🛡️ Is my data public?</summary><p>No. Data is stored privately and never displayed or shared publicly.</p></details>
-      <details><summary>💬 Why do you store user IDs?</summary><p>They are required to link settings and commands to the correct user or guild.</p></details>
-      <details><summary>🚫 What happens if I remove the bot?</summary><p>Your stored configuration data will be automatically deleted after a cleanup cycle.</p></details>
-      <details><summary>⚙️ How can I report a bug?</summary><p>DM the developer directly via Discord or email.</p></details>
-      <details><summary>🔒 How do you secure stored data?</summary><p>By isolating the data folder and limiting access to the bot only.</p></details>
-      <details><summary>📜 Do you log chat messages?</summary><p>No. We never store or view message content.</p></details>
-    </section>
+      <div class="faq"><strong>🤖 What can Fadi’s Assistant do?</strong> It offers moderation, utility tools, and fun commands for Discord servers.</div>
+      <div class="faq"><strong>🔒 Does it store messages?</strong> No, Fadi’s Assistant never stores chat logs or message content.</div>
+      <div class="faq"><strong>🧠 Who can access the stored data?</strong> Only the developer, and only for maintenance/debugging if needed.</div>
+      <div class="faq"><strong>⚙️ Can I request a feature?</strong> Yes! Message <a href="https://discord.com/users/1167531276467708055">@fadi_fazbarr</a> directly.</div>
+      <div class="faq"><strong>💾 How long is data kept?</strong> Data is kept only as long as your server uses the bot.</div>
+      <div class="faq"><strong>🛡️ Is my server safe?</strong> Absolutely. Fadi’s Assistant never shares your server data with anyone.</div>
+      <div class="faq"><strong>🌙 How do I enable dark mode?</strong> Use the toggle button ☀️/🌕 in the top-right corner!</div>
+      <div class="faq"><strong>📩 How can I remove my data?</strong> Contact Fadi through email or Discord, and it’ll be deleted manually.</div>
+    </div>
   </main>
 
-  <footer>© 2025 Fadi's Assistant | Developed with ❤️ by Fadi</footer>
+  <footer>
+    © 2025 Fadi's Assistant | Developed with ❤️ by Fadi
+  </footer>
 
-  <button id="scrollTop">⬆️</button>
+  <button id="scrollTop" title="Scroll to top">⬆️</button>
 
   <script>
     const toggle = document.getElementById("modeToggle");
+    const body = document.body;
     const scrollBtn = document.getElementById("scrollTop");
 
-    // Theme setup
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark");
+    // Apply saved theme or system preference
+    if (localStorage.getItem("theme") === "dark" || 
+        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      body.classList.add("dark");
     }
 
-    // Fade-in on load
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-    });
-
+    // Theme toggle animation
     toggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+      body.classList.toggle("dark");
+      const darkMode = body.classList.contains("dark");
+      localStorage.setItem("theme", darkMode ? "dark" : "light");
     });
 
-    // Scroll button
+    // Fade-in effect
+    window.addEventListener("load", () => {
+      body.classList.add("loaded");
+    });
+
+    // Scroll to top button logic
     window.addEventListener("scroll", () => {
-      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add("visible");
+      } else {
+        scrollBtn.classList.remove("visible");
+      }
     });
 
     scrollBtn.addEventListener("click", () => {
