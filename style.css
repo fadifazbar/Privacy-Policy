@@ -1,0 +1,95 @@
+
+/* Reset-ish */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,#f4f6fb 0%, #eef1fb 100%);
+  color:#0f1724;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout */
+header{
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  background:linear-gradient(270deg, #5865F2, #7289da, #99aaff);
+  background-size:600% 600%;
+  animation: shimmer 10s ease infinite;
+  color:white;
+  box-shadow: 0 8px 24px rgba(88,101,242,0.12);
+}
+.brand{ display:flex; align-items:center; gap:14px }
+.brand img{ width:56px; height:56px; border-radius:12px; animation:float 3s ease-in-out infinite }
+.brand h1{ margin:0; font-size:1.25rem }
+.brand .muted{ display:block; font-size:0.75rem; opacity:0.9 }
+.controls{ display:flex; align-items:center; gap:12px }
+.theme-btn{ background:rgba(255,255,255,0.12); border:0; padding:8px; border-radius:10px; color:white; cursor:pointer }
+.invite{ background:rgba(255,255,255,0.12); color:white; padding:8px 12px; border-radius:10px; text-decoration:none }
+
+main{ max-width:1100px; margin:28px auto; padding: 24px; display:grid; grid-template-columns:1fr; gap:18px }
+.card{ background:rgba(255,255,255,0.9); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(16,24,40,0.06); border:1px solid rgba(16,24,40,0.04) }
+.card h2, .card h3{ margin-top:0; display:flex; align-items:center; gap:10px }
+.card .icon{ opacity:0.9 }
+.lead{ margin-top:8px; color:#263238 }
+
+/* Sidebar */
+#sidebar{ position:fixed; left:18px; top:110px; width:140px; background:rgba(255,255,255,0.85); border-radius:12px; padding:10px; box-shadow:0 8px 24px rgba(16,24,40,0.06); }
+#sidebar ul{ list-style:none; margin:0; padding:0 }
+#sidebar li{ margin:8px 0 }
+#sidebar a{ color:#0f1724; text-decoration:none; font-size:0.95rem }
+#sidebar a:hover{ color:#5865F2 }
+
+/* Scroll to top */
+#toTop{ position:fixed; right:22px; bottom:22px; width:46px; height:46px; border-radius:10px; border:0; background:linear-gradient(90deg,#5865F2,#7289da); color:white; cursor:pointer; box-shadow:0 8px 20px rgba(88,101,242,0.18); display:none }
+
+/* Footer */
+footer{ margin-top:28px; padding:18px 24px; text-align:center }
+.footer-inner{ display:flex; gap:18px; align-items:center; justify-content:center; flex-wrap:wrap }
+.footer-inner .socials a{ margin:0 6px; color:#5865F2; text-decoration:none }
+.footer-inner .presence img{ height:36px; border-radius:8px }
+
+/* Accordion */
+.accordion{ display:block }
+.acc-toggle{ width:100%; text-align:left; background:transparent; border:0; padding:12px 0; font-weight:600; cursor:pointer }
+.acc-panel{ max-height:0; overflow:hidden; transition:max-height 0.32s ease; color:#24303a; padding:0 0 }
+.acc-toggle[aria-expanded='true']{ color:#5865F2 }
+
+/* mini button */
+.mini-btn{ font-size:0.85rem; border:0; background:transparent; padding:6px 8px; margin-left:8px; border-radius:8px; cursor:pointer; background:linear-gradient(90deg,#f7f7f8,#eef1fb); }
+
+/* Reveal animations */
+.reveal{ transform: translateY(18px); opacity:0; transition: transform 0.6s ease, opacity 0.6s ease }
+.reveal.visible{ transform: translateY(0); opacity:1 }
+
+/* Dark mode tweaks */
+:root{ --bg-dark:#0b0f19 }
+body.dark{ background: linear-gradient(180deg,#07080a 0%, #0f1116 100%); color:#dbeafe }
+body.dark .card{ background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.03); box-shadow: 0 8px 24px rgba(88,101,242,0.06) }
+body.dark #sidebar{ background: rgba(10,12,16,0.6); color:#e6eefb }
+body.dark #sidebar a{ color:#cfe0ff }
+body.dark .theme-btn{ background: rgba(255,255,255,0.06) }
+body.dark .brand h1{ color:#e8eefb }
+body.dark .lead{ color:#cbd6e1 }
+
+/* Keyframes reused */
+@keyframes shimmer{ 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+@keyframes float{ 0%,100%{ transform: translateY(0)}50%{ transform: translateY(-6px)} }
+
+/* Responsive */
+@media (max-width:900px){ #sidebar{ display:none } main{ width:92% } }
+
+
+/* small utilities */
+.muted{ opacity:0.85 }
+.lead p{ margin:0 }
+
+
+
+
+<!-- EOF style.css -->
