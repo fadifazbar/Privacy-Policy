@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fadi's Assistant | Privacy Policy</title>
+  <title>Fadi's Assistant | Terms of Service</title>
   <link rel="icon" href="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png">
 
-  <!-- ✅ Discord & Social Embeds -->
+    <!-- ✅ Discord & Social Embeds -->
   <meta property="og:title" content="Fadi's Assistant | Privacy Policy" />
   <meta property="og:description" content="Learn how Fadi’s Assistant protects your privacy and data on Discord." />
   <meta property="og:image" content="https://i.postimg.cc/Bvd7L7G4/Picsart-25-10-11-19-30-55-153.jpg" />
@@ -22,297 +22,251 @@
 
   <style>
     :root {
-      --accent: #5865f2;
-      --light-bg: #f4f4f4;
-      --dark-bg: #1e1e1e;
+      --neon-blue: #00e0ff;
+      --neon-purple: #b06bff;
+      --light-bg: #f4f4fa;
+      --dark-bg: radial-gradient(circle at top left, #0f0f25, #0a0a14);
       --light-card: #ffffff;
-      --dark-card: #2b2b2b;
-      --light-text: #1e1e1e;
-      --dark-text: #f4f4f4;
-      --gradient-btn: linear-gradient(135deg, #0394fc, #75c6ff);
+      --dark-card: #131321;
+      --text-dark: #121212;
+      --text-light: #f5f5f5;
     }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Inter", sans-serif;
-      background: var(--light-bg);
-      color: var(--light-text);
-      transition: background 0.4s, color 0.4s;
-      opacity: 0;
-    }
-
-    body.loaded {
-      opacity: 1;
-      transition: opacity 1s ease;
-    }
-
-    body.dark {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-light);
       background: var(--dark-bg);
-      color: var(--dark-text);
+      opacity: 0;
+      transition: opacity 1s ease, background 0.8s ease, color 0.5s ease;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body.loaded { opacity: 1; }
+    body.light {
+      background: linear-gradient(135deg, #f6f8ff, #e5e9ff);
+      color: var(--text-dark);
     }
 
     /* Header */
     header {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: linear-gradient(270deg, #00b7ff, #fff68f);
-      background-size: 400% 400%;
-      animation: gradientMove 21s ease infinite;
+      background: rgba(20, 20, 40, 0.7);
       color: white;
-      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.5);
+      transition: background 0.5s ease, color 0.5s ease;
+      z-index: 999;
     }
 
-    header div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    body.light header {
+      background: rgba(255,255,255,0.9);
+      color: #121212;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
+
+    header div { display: flex; align-items: center; gap: 12px; }
 
     header img {
-      animation: floatLogo 2s ease-in-out infinite;
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
+      box-shadow: 0 0 10px var(--neon-blue);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
 
     header h1 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-shadow: 0 0 10px var(--neon-blue);
     }
 
-    @keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
+    /* Theme Toggle */
+    .toggle-btn {
+      width: 60px; height: 32px; border-radius: 50px;
+      background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+      position: relative; cursor: pointer; border: none; outline: none;
+      transition: all 0.5s ease;
     }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
-@keyframes floatLogo {
-    0%, 100% {
-        transform: translateY(0);
+    .toggle-circle {
+      position: absolute;
+      width: 28px; height: 28px; top: 2px; left: 2px;
+      background: white; border-radius: 50%; transition: all 0.5s ease;
     }
-    50% {
-        transform: translateY(-8px);
-    }
-}
 
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-      }
-    }
+    body.light .toggle-circle { transform: translateX(28px); background: #121212; }
 
     /* Main */
     main {
       max-width: 900px;
-      margin: 2rem auto;
-      background: var(--light-card);
+      margin: 6rem auto 4rem;
       padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: background 0.4s;
+      background: var(--dark-card);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      transition: all 0.6s ease;
+      color: var(--text-light);
+      text-shadow: 0 0 5px rgba(0,224,255,0.3);
+      animation: fadeIn 1.5s ease forwards;
     }
 
-    body.dark main {
-      background: var(--dark-card);
-      box-shadow: 0 4px 12px rgba(255,255,255,0.08);
+    body.light main {
+      background: var(--light-card);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      color: var(--text-dark);
+      text-shadow: none;
     }
 
     h2 {
       text-align: center;
+      font-size: 2rem;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    h3 {
-      color: #00bfff;
-      transition: color 0.4s;
-    }
+    h3 { color: var(--neon-blue); margin-top: 2rem; }
+    body.light h3 { color: #4f46e5; }
 
-    body.dark h3 {
-      color: #fff480;
-    }
-
+    /* Link Colors */
     a {
-      color: #00bfff;
-      text-decoration: none;
-      font-weight: 500;
-      position: relative;
+      color: #00e0ff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    a:hover { color: #b06bff; }
+    body.light a {
+      color: #4f46e5;
+    }
+    body.light a:hover {
+      color: #9333ea;
     }
 
-    a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, #00bfff, #ffffff);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    a:hover::after {
-      opacity: 1;
-    }
-
-    /* Buttons */
-    .invite-btn, #toTopBtn {
-      display: inline-block;
-      background: var(--gradient-btn);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 12px 24px;
-      font-weight: bold;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    .invite-btn:hover {
-      transform: scale(1.05);
-    }
-
-    #toTopBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
+    .divider { height: 2px; background: linear-gradient(90deg, transparent, var(--neon-blue), transparent); margin: 2rem 0; }
 
     /* FAQ */
-    .faq {
-      margin-top: 3rem;
-    }
-
-    .faq h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
+    .faq { margin-top: 3rem; }
     .faq-item {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
       margin-bottom: 1rem;
-      border-radius: 8px;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      transition: background 0.3s;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.4s ease;
+      box-shadow: 0 0 10px rgba(0,224,255,0.1);
     }
 
-    body.dark .faq-item {
-      border-color: rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-    }
+    .faq-item:hover { box-shadow: 0 0 15px var(--neon-blue); transform: scale(1.01); }
 
     .faq-question {
-      width: 100%;
-      padding: 1rem;
-      background: none;
-      border: none;
-      color: inherit;
-      font-size: 1rem;
-      font-weight: bold;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      width: 100%; padding: 1rem 1.2rem; font-size: 1.1rem; font-weight: 600;
+      cursor: pointer; background: none; border: none; color: inherit;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .faq-emoji { display: inline-block; font-size: 1.3rem; transition: transform 0.4s ease; }
+    .faq-item.active .faq-emoji { animation: tilt 0.5s ease; }
+
+    @keyframes tilt {
+      0% { transform: rotate(0deg); }
+      40% { transform: rotate(25deg) scale(1.2); }
+      80% { transform: rotate(-10deg) scale(1.1); }
+      100% { transform: rotate(0deg) scale(1); }
     }
 
     .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s;
-      padding: 0 1rem;
-      opacity: 0;
+      max-height: 0; overflow: hidden; opacity: 0; padding: 0 1rem;
+      transition: all 0.5s ease;
     }
 
     .faq-item.active .faq-answer {
-      max-height: 200px;
-      padding: 1rem;
-      opacity: 1;
+      max-height: 250px; opacity: 1; padding: 1rem 1.2rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-
-    /* Theme Toggle Animation */
-    .toggle-btn {
-      background: #fae3a5;
-      border: none;
-      width: 60px;
-      height: 32px;
+    /* Invite Button */
+    .invite-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+      color: white;
+      padding: 12px 24px;
       border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 2rem;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 0 20px var(--neon-purple);
+    }
+
+    .invite-btn:hover { transform: scale(1.07); box-shadow: 0 0 25px var(--neon-blue); }
+
+    /* To Top Button */
+    #toTopBtn {
+      position: fixed; /* makes it follow the screen, not the page */
+      right: 25px;
+      bottom: 25px; /* always stays near screen edge */
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+      color: white;
+      font-size: 1.5rem;
+      border: none;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .toggle-icon {
-      position: absolute;
-      font-size: 1.4rem;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: all 0.4s ease;
-    }
-
-    .light .toggle-icon.sun {
-      left: 16px;
-      opacity: 1;
-    }
-
-    .light .toggle-icon.moon {
-      right: -24px;
       opacity: 0;
+      visibility: hidden;
+      transform: translateY(40px);
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+      box-shadow: 0 0 20px rgba(0, 224, 255, 0.6);
+      z-index: 9999; /* stay above all elements */
     }
 
-    .dark .toggle-icon.sun {
-      left: -24px;
-      opacity: 0;
-    }
 
-    .dark .toggle-icon.moon {
-      right: 16px;
+    #toTopBtn.show {
       opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; text-align: center; }
+      main { padding: 1.2rem; margin-top: 8rem; }
     }
   </style>
 </head>
 
-<body class="light">
+<body>
   <header>
     <div>
       <img src="https://i.postimg.cc/76pnnD5b/Picsart-25-09-27-21-31-27-414.png" alt="Bot Logo">
       <h1>Fadi's Assistant</h1>
     </div>
-    <button class="toggle-btn" id="modeToggle">
-      <span class="toggle-icon sun">☀️</span>
-      <span class="toggle-icon moon">🌕</span>
-    </button>
+    <button class="toggle-btn" id="themeToggle" aria-label="Toggle light or dark theme"><span class="toggle-circle"></span></button>
   </header>
 
   <main>
     <h2><strong>Fadi's Assistant Privacy Policy</strong></h2>
     <p><strong>Last Updated:</strong> October 11, 2025</p>
-    <p>Welcome to <strong>Fadi’s Assistant</strong> — a multipurpose Discord bot created by <strong>Fadi</strong>. This Privacy Policy explains how we handle and protect your data while using the bot.</p>
 
     <h3>1. Information We Collect</h3>
     <ul><li>User IDs</li><li>Server IDs</li><li>Channel IDs</li></ul>
@@ -340,62 +294,106 @@
 
     <h3>9. Children’s Privacy</h3>
     <p>The bot is not intended for children under 13. No personal data from minors is knowingly collected.</p>
+    </section>
 
-    <h3>10. Contact</h3>
-    <p>Email: <a href="mailto:faditoilet@gmail.com">faditoilet@gmail.com</a><br>
-    Discord: <a href="https://discord.com/users/1167531276467708055">@fadi_fazbarr</a></p>
-
-    <a href="https://discord.com/oauth2/authorize?client_id=1242542083059749005&permissions=8&integration_type=0&scope=bot" class="invite-btn">🤖 Invite Bot</a>
+    <div class="divider"></div>
 
     <section class="faq">
-      <h2>❓ Frequently Asked Questions</h2>
-
-      <div class="faq-item"><button class="faq-question">🤖 What is Fadi’s Assistant?</button><div class="faq-answer">A multifunctional Discord bot for moderation, fun, and utilities.</div></div>
-      <div class="faq-item"><button class="faq-question">⚙️ How can I configure it?</button><div class="faq-answer">Use setup commands.</div></div>
-      <div class="faq-item"><button class="faq-question">🧠 Does it store my messages?</button><div class="faq-answer">No, it only stores IDs needed for its core features.</div></div>
-      <div class="faq-item"><button class="faq-question">🛡️ How is my data protected?</button><div class="faq-answer">All data is stored securely with limited access.</div></div>
-      <div class="faq-item"><button class="faq-question">💬 How do I contact support?</button><div class="faq-answer">Reach out via Discord DM or email.</div></div>
-      <div class="faq-item"><button class="faq-question">📜 What’s the bot’s prefix?</button><div class="faq-answer">Default prefix: <strong>$</strong>. Slash commands supported ✅</div></div>
-      <div class="faq-item"><button class="faq-question">🔋 What data does it store?</button><div class="faq-answer">The bot is only capable of saving <strong>ServerIDs</strong>, <strong>UserIDs</strong>, <strong>ChannelIDs</strong></div></div>
-      <div class="faq-item"><button class="faq-question">🚀 Can I suggest features?</button><div class="faq-answer">Absolutely! DM Fadi and he will try to respond asap.</div></div>
+      <h3>Frequently Asked Questions</h3>
+      <div id="faq-container"></div>
     </section>
+
+    <a href="https://discord.com/oauth2/authorize?client_id=1242542083059749005&permissions=8&scope=bot+applications.commands" class="invite-btn">🤖 Invite Bot</a>
   </main>
 
-  <footer>© 2025 Fadi’s Assistant | Developed with ❤️ by Fadi</footer>
-
+  <footer style="text-align:center;margin:2rem 0;">© 2025 Fadi’s Assistant | Developed with ❤️ by Fadi</footer>
   <button id="toTopBtn">⬆️</button>
 
   <script>
     window.addEventListener("load", () => document.body.classList.add("loaded"));
-
-    const toggle = document.getElementById("modeToggle");
     const body = document.body;
+    const toggle = document.getElementById("themeToggle");
 
-    toggle.addEventListener("click", () => {
-      body.classList.toggle("dark");
-      body.classList.toggle("light");
-      localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-    });
-
-    if (localStorage.getItem("theme") === "dark") {
-      body.classList.add("dark");
-      body.classList.remove("light");
+    function applyTheme(theme) {
+      body.className = theme + " loaded";
+      localStorage.setItem("theme", theme);
     }
 
-    // FAQ accordion
-    document.querySelectorAll(".faq-question").forEach(q => {
-      q.addEventListener("click", () => {
-        const item = q.parentElement;
+    toggle.addEventListener("click", () => {
+      const newTheme = body.classList.contains("light") ? "dark" : "light";
+      applyTheme(newTheme);
+    });
+
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+
+    // FAQ Data
+    const faqData = [
+      ["🤖", "What is Fadi’s Assistant?", "A multifunctional Discord bot for moderation, fun, and utilities."],
+      ["⚙️", "How can I configure it?", "Use setup commands."],
+      ["🛡️", "How is my data protected?", "All data is stored securely with limited access."],
+      ["🔒", "Does it store messages?", "No, it never stores message content."],
+      ["📩", "How to contact support?", "Email: <a href='mailto:faditoilet@gmail.com'>faditoilet@gmail.com</a>"],
+      ["🎮", "Does it support all servers?", "Yes, as long as it follows Discord ToS."],
+      ["📜", "What’s the bot’s prefix?", "Default prefix: <strong>$</strong>. Slash commands supported"]
+    ];
+
+    const randomFaqs = faqData.sort(() => 0.5 - Math.random()).slice(0, 5);
+    const faqContainer = document.getElementById("faq-container");
+
+    randomFaqs.forEach(([emoji, q, a]) => {
+      const item = document.createElement("div");
+      item.className = "faq-item";
+      item.innerHTML = `
+        <button class="faq-question"><span class="faq-emoji">${emoji}</span> ${q}</button>
+        <div class="faq-answer">${a}</div>
+      `;
+      faqContainer.appendChild(item);
+    });
+
+    document.querySelectorAll(".faq-item").forEach(item => {
+      item.querySelector(".faq-question").addEventListener("click", () => {
         item.classList.toggle("active");
       });
     });
 
-    // Scroll to top button
-    const toTopBtn = document.getElementById("toTopBtn");
-    window.addEventListener("scroll", () => {
-      toTopBtn.style.display = window.scrollY > 300 ? "flex" : "none";
-    });
-    toTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    // To top button — robust, initializes on load and uses passive scroll listener
+    (function() {
+      const SCROLL_THRESHOLD = 400;
+      // Ensure code runs after DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+
+      function init() {
+        const toTopBtn = document.getElementById("toTopBtn");
+        if (!toTopBtn) {
+          console.warn("toTopBtn element not found in DOM.");
+          return;
+        }
+
+        const toggleShow = () => {
+          if (window.scrollY > SCROLL_THRESHOLD) {
+            toTopBtn.classList.add("show");
+          } else {
+            toTopBtn.classList.remove("show");
+          }
+        };
+
+        // Initialize state in case page loaded already scrolled (or anchor)
+        toggleShow();
+
+        // Use passive scroll listener for performance
+        window.addEventListener("scroll", toggleShow, { passive: true });
+
+        toTopBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    })();
   </script>
 </body>
 </html>
